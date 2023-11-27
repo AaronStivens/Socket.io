@@ -11,16 +11,16 @@ app.get('/', (req, res) => {
 });
 
 io.on('connection', (socket) => {
-  console.log(hostname+' se ha conectado');
+  console.log('Un usuario se ha conectado');
   socket.on('disconnect', () => {
-    console.log(hostname+' se desconecto');
+    console.log('Un usuario se desconecto');
 });
 });
 
 io.on('connection', (socket) => {
   socket.on('chat message', (msg) => {
     io.emit('chat message', msg);
-    console.log(hostname + " dice: " + msg);
+    console.log("Un usuario dice: " + msg);
   });
 });
 
